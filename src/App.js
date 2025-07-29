@@ -22,9 +22,7 @@ export default function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
-  
   }
-
 
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
@@ -241,7 +239,7 @@ function SelectedMovie({ selectedId, onClose, onAddWatched, watched }) {
         try {
           setIsLoading(true);
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${Key}&i=${selectedId}`
+            `https://www.omdbapi.com/?apikey=${Key}&i=${selectedId}`
           );
           const data = await res.json();
           setMovie(data);
